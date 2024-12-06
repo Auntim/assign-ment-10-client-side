@@ -14,6 +14,11 @@ import UpdateMovie from './components/UpdateMovie.jsx';
 import Favourite from './components/Favourite.jsx';
 import Login from './components/Login.jsx';
 import Registrar from './components/Registrar.jsx';
+import AuthProviders from './providers/AuthProviders.jsx';
+import MovieDetails from './components/MovieDetails.jsx';
+import Favorites from './components/Favorites.jsx';
+import { FaV } from 'react-icons/fa6';
+import FavoriteMovies from './components/FavoriteMovies.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +32,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'movies',
-        element: <AllMovies></AllMovies>
+        element: <AllMovies></AllMovies>,
+        loader: () => fetch('http://localhost:5000/movie')
       },
       {
         path: 'add-movie',
@@ -39,8 +45,12 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
       },
       {
-        path: 'favorites',
+        path: '/favorites',
         element: <Favourite></Favourite>
+      },
+      {
+        path: '/favorites',
+        element: <FavoriteMovies></FavoriteMovies>
       },
       {
         path: 'login',
@@ -49,6 +59,14 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Registrar></Registrar>
+      },
+      {
+        path: '/movie/:id',
+        element: <MovieDetails></MovieDetails>
+      },
+      {
+        path: 'favorites',
+        element: <Favorites></Favorites>
       }
     ]
   }
@@ -56,6 +74,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
   </StrictMode>,
 )

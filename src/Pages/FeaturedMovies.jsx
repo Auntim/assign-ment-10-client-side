@@ -1,4 +1,3 @@
-// FeaturedMovies.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,11 +5,9 @@ const FeaturedMovies = () => {
     const [featuredMovies, setFeaturedMovies] = useState([]);
 
     useEffect(() => {
-        // Fetch the movies from the database (MongoDB or API)
-        fetch('/api/movies') // Adjust the endpoint if needed
+        fetch('/api/movies')
             .then(response => response.json())
             .then(data => {
-                // Sort movies based on rating and pick top 6
                 const sortedMovies = data.sort((a, b) => b.rating - a.rating);
                 setFeaturedMovies(sortedMovies.slice(0, 6));
             })

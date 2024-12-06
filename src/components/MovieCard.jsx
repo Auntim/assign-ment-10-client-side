@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, movies, setMovies }) {
 
     const { poster, title, genre, duration, release, rating, summary, _id } = movie;
 
@@ -35,11 +35,8 @@ function MovieCard({ movie }) {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-
-                            // update the loaded coffee state
-                            // const remainingMovies = loadedCoffees.filter(movie => movie._id !== _id);
-                            // setLoadedCoffees(remainingMovies);
-
+                            const remaining = movies.filter(mov => mov._id !== _id)
+                            setMovies(remaining)
                         }
                     })
 
@@ -48,7 +45,7 @@ function MovieCard({ movie }) {
     }
 
     return (
-        <div className="card card-side bg-base-100 shadow-xl m-20 p-6">
+        <div className="card  bg-base-100 shadow-xl m-20 p-6">
             <figure className='h-52  '>
                 <img className='w-full rounded-lg object-cover'
                     src={poster}
@@ -71,9 +68,12 @@ function MovieCard({ movie }) {
                         <Link>
                             <button onClick={() => handleDelete(_id)} className="text-2xl p-2 bg-blue-200 rounded-full text-center items-center btn"><MdDelete></MdDelete></button>
                         </Link>
-                        <Link>
-                            <button className="text-2xl p-2 bg-blue-200 rounded-full text-center items-center btn"><FaRegEye></FaRegEye></button>
+                        <Link to={`/movie/${_id}`}>
+                            <button className="text-2xl p-2 bg-blue-200 rounded-full text-center items-center btn">
+                                <FaRegEye />
+                            </button>
                         </Link>
+
                     </div>
                 </div>
             </div>

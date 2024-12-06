@@ -1,22 +1,21 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth"; // Custom hook to get user data
+import { useAuth } from "../hooks/useAuth";
 import { FaUserCircle } from "react-icons/fa";
 import { useTheme } from "./ThemeProvider";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
-    const { user, logout } = useAuth(); // Assuming `useAuth` provides user and logout function
+    const { user, logout } = useAuth();
     const { theme, toggleTheme } = useTheme;
 
     return (
         <nav className="bg-gray-800 text-white">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
-                {/* Logo/Website Name */}
                 <Link to="/" className="text-2xl font-bold text-red-400">
                     NETFLIX
                 </Link>
 
-                {/* Navigation Links */}
                 <ul className="hidden md:flex space-x-6">
                     <li>
                         <NavLink
@@ -72,7 +71,6 @@ const Navbar = () => {
 
                 </ul>
 
-                {/* User Authentication */}
                 <div className="flex items-center space-x-4">
                     {!user ? (
                         <>
@@ -82,12 +80,7 @@ const Navbar = () => {
                             <Link to="/register" className="hover:text-yellow-500">
                                 Register
                             </Link>
-                            <button
-                                onClick={toggleTheme}
-                                className="px-4 py-2 bg-blue-500 text-white rounded-md"
-                            >
-                                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-                            </button>
+
                         </>
                     ) : (
                         <div className="relative group">
@@ -110,9 +103,8 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Navigation */}
             <div className="md:hidden">
-                {/* Add a hamburger menu for mobile responsiveness */}
+                <GiHamburgerMenu></GiHamburgerMenu>
             </div>
         </nav>
     );
