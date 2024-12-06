@@ -8,6 +8,12 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home.jsx';
 import Root from './components/Root/Root.jsx';
+import AllMovies from './components/AllMovies.jsx';
+import AddMovies from './components/AddMovies.jsx';
+import UpdateMovie from './components/UpdateMovie.jsx';
+import Favourite from './components/Favourite.jsx';
+import Login from './components/Login.jsx';
+import Registrar from './components/Registrar.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +23,32 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/movie')
+      },
+      {
+        path: 'movies',
+        element: <AllMovies></AllMovies>
+      },
+      {
+        path: 'add-movie',
+        element: <AddMovies></AddMovies>
+      },
+      {
+        path: 'updatemovie/:id',
+        element: <UpdateMovie></UpdateMovie>,
+        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
+      },
+      {
+        path: 'favorites',
+        element: <Favourite></Favourite>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
+      },
+      {
+        path: 'register',
+        element: <Registrar></Registrar>
       }
     ]
   }
