@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../providers/AuthProviders'
+import { Link } from 'react-router-dom'
 
 function Registrar() {
 
@@ -34,9 +35,10 @@ function Registrar() {
 
     }
     return (
-        <div className='flex justify-center'>
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className='flex card justify-center items-center min-h-screen bg-gray-100'>
+            <div className=" bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <form onSubmit={handleSignUp} className="card-body">
+                    <h2 className='text-xl font-semibold'>Register</h2>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -55,8 +57,9 @@ function Registrar() {
                         </label>
                         <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <p href="#" className="label-text-alt text-xl link link-hover">Forgot password? <span><Link to="/login" className="text-blue-500 hover:underline">Login</Link></span></p>
                         </label>
+
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Sign Up</button>

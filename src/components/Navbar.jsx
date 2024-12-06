@@ -46,16 +46,7 @@ const Navbar = () => {
                             Add Movie
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink
-                            to="/updatemovie"
-                            className={({ isActive }) =>
-                                isActive ? "text-yellow-500" : "hover:text-yellow-500"
-                            }
-                        >
-                            UpdateMovie
-                        </NavLink>
-                    </li>
+
                     <li>
                         <NavLink
                             to="/favorites"
