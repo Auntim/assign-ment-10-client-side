@@ -8,17 +8,17 @@ const Home = () => {
     const loadedmovies = useLoaderData();
     const [movies, setMovies] = useState(loadedmovies);
 
-    // Theme State
+
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-    // Toggle Theme
+
     const toggleTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
-        localStorage.setItem("theme", newTheme); // Save to localStorage
+        localStorage.setItem("theme", newTheme);
     };
 
-    // Apply Theme to Body
+
     useEffect(() => {
         document.body.className = theme;
     }, [theme]);

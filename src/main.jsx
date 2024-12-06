@@ -18,12 +18,14 @@ import AuthProviders from './providers/AuthProviders.jsx';
 import MovieDetails from './components/MovieDetails.jsx';
 import Favorites from './components/Favorites.jsx';
 import { FaV } from 'react-icons/fa6';
-import FavoriteMovies from './components/FavoriteMovies.jsx';
+// import FavoriteMovies from './components/FavoriteMovies.jsx';
+import Erropage from './components/Erropage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Erropage></Erropage>,
     children: [
       {
         path: '/',
@@ -48,10 +50,10 @@ const router = createBrowserRouter([
         path: '/favorites',
         element: <Favourite></Favourite>
       },
-      {
-        path: '/favorites',
-        element: <FavoriteMovies></FavoriteMovies>
-      },
+      // {
+      //   path: '/favorites',
+      //   element: <FavoriteMovies></FavoriteMovies>
+      // },
       {
         path: 'login',
         element: <Login></Login>
@@ -64,10 +66,7 @@ const router = createBrowserRouter([
         path: '/movie/:id',
         element: <MovieDetails></MovieDetails>
       },
-      {
-        path: 'favorites',
-        element: <Favorites></Favorites>
-      }
+
     ]
   }
 ]);

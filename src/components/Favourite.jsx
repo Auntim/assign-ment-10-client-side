@@ -1,54 +1,62 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function Favorites() {
+function Favourite() {
     const [favorites, setFavorites] = useState([]);
-    const [loading, setLoading] = useState(true);
 
-    // Fetch the user's favorites from the backend
     useEffect(() => {
-        const email = 'user@example.com';
-        fetch(`http://localhost:5000/favorites?email=${email}`)
+        fetch('http://localhost:5000/favorites')
             .then((res) => res.json())
-            .then((data) => {
-                setFavorites(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching favorites:', error);
-                setLoading(false);
-            });
+            .then((data) => setFavorites(data))
+            .catch((err) => console.error(err));
     }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (favorites.length === 0) {
-        return <div>No favorites found!</div>;
-    }
+    const handleRemoveFavorite = (id) => {
+        console.log(id)
+        fetch(`http://localhost:5000/favorites/${id}`, {
+            method: 'DELETE',
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.deletedCount) {
+                    setFavorites(favorites.filter((movie) => movie._id !== id));
+                }
+            })
+            .catch((err) => console.error(err));
+    };
 
     return (
-        <div className="favorites-page p-4">
-            <h1 className="text-2xl font-bold mb-4">My Favorites</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {favorites.map((movie) => (
-                    <div
-                        key={movie._id}
-                        className="card shadow-md p-4 bg-white rounded-lg"
-                    >
-                        <img
-                            src={movie.poster}
-                            alt={movie.title}
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
-                        <h2 className="text-xl font-semibold">{movie.title}</h2>
-                        <p>{movie.genre}</p>
-                        <p>Rating: {movie.rating}</p>
-                    </div>
-                ))}
-            </div>
+        <div className="container mx-auto p-6">
+            <h1 className="text-3xl font-bold mb-6">Favorite Movies</h1>
+            {favorites.length === 0 ? (
+                <p>You have no favorite movies yet.</p>
+            ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {favorites.map((movie) => (
+                        <div key={movie._id} className="card bg-base-100 shadow-xl p-4">
+                            <figure>
+                                <img src={movie.poster} alt={movie.title} className="rounded-lg" />
+                            </figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{movie.title}</h2>
+                                <p><strong>Genre:</strong> {movie.genre}</p>
+                                <p><strong>Rating:</strong> {movie.rating}</p>
+                                <div className="card-actions mt-4">
+                                    <button
+                                        onClick={() => handleRemoveFavorite(movie._id)}
+                                        className="btn bg-gray-900 text-white"
+                                    >
+                                        Remove
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
 
-export default Favorites;
+export default Favourite;

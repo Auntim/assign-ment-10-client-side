@@ -7,7 +7,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
     const { user, logout } = useAuth();
-    const { theme, toggleTheme } = useTheme;
 
     return (
         <nav className="bg-gray-800 text-white">
