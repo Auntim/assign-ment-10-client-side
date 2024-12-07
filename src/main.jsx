@@ -16,10 +16,10 @@ import Login from './components/Login.jsx';
 import Registrar from './components/Registrar.jsx';
 import AuthProviders from './providers/AuthProviders.jsx';
 import MovieDetails from './components/MovieDetails.jsx';
-import Favorites from './components/Favorites.jsx';
 import { FaV } from 'react-icons/fa6';
 // import FavoriteMovies from './components/FavoriteMovies.jsx';
 import Erropage from './components/Erropage.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -64,7 +64,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/movie/:id',
-        element: <MovieDetails></MovieDetails>
+        element: <PrivateRoute>
+          <MovieDetails></MovieDetails>
+        </PrivateRoute>
       },
 
     ]

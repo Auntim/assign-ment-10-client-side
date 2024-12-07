@@ -17,6 +17,7 @@ const googleProvider = new GoogleAuthProvider();
 function AuthProviders({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    console.log('private route user', user)
 
     const createUser = (email, password) => {
         setLoading(true);
