@@ -9,13 +9,14 @@ function Registrar() {
     const handleSignUp = e => {
         e.preventDefault();
         const name = e.target.name.value;
+        const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
-                const newUser = { name, email }
+                const newUser = { name, photo, email }
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
@@ -44,6 +45,12 @@ function Registrar() {
                             <span className="label-text">Name</span>
                         </label>
                         <input type="text" placeholder="name" name="name" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo Url</span>
+                        </label>
+                        <input type="text" placeholder="Photo url" name="photo" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
