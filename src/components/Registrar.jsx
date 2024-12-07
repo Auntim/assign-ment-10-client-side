@@ -63,8 +63,8 @@ function Registrar() {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" placeholder="password" name="password" className="input input-bordered" required />
-                        <label className="label">
-                            <p href="#" className="label-text-alt text-xl link link-hover">Forgot password? <span><Link to="/login" className="text-blue-500 hover:underline">Login</Link></span></p>
+                        <label className=" flex justify-center items-center">
+                            <p href="#" className="text-center my-3 label-text-alt text-[18px] link link-hover">Forgot password? <span><Link to="/login" className="text-blue-500 hover:underline">Login</Link></span></p>
                         </label>
 
                     </div>

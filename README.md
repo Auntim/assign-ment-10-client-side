@@ -1,7 +1,13 @@
 🎥 Movie Portal:
 Welcome to Movie Portal, your ultimate destination for discovering, exploring, and managing your favorite movies!
 
-🌐 Live Site URL: Movie Portal
+🌐 Live Site URL: https://movie-store-fb2c5.web.app/
+
+   Server site Live Link:https://assignment-10-server-side-lnq2p1miq.vercel.app/
+
+Github Repo Server site Link:https://github.com/programming-hero-web-course2/b10-a10-server-side-Auntim
+
+Github Repo Clint site Link:https://github.com/programming-hero-web-course2/b10-a10-client-side-Auntim
 
 
 📌 Features:
