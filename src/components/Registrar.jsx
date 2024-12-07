@@ -17,7 +17,7 @@ function Registrar() {
             .then(result => {
                 console.log(result.user)
                 const newUser = { name, photo, email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://assignment-10-server-side-bice.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

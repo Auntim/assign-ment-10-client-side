@@ -5,14 +5,14 @@ function Favorites() {
     const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/favorites')
+        fetch('https://assignment-10-server-side-bice.vercel.app/favorites')
             .then((res) => res.json())
             .then((data) => setFavorites(data))
             .catch((err) => console.error(err));
     }, []);
 
     const handleRemoveFavorite = (id) => {
-        fetch(`http://localhost:5000/favorites/${id}`, {
+        fetch(`https://assignment-10-server-side-bice.vercel.app/favorites/${id}`, {
             method: 'DELETE',
         })
             .then((res) => res.json())

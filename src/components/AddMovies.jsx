@@ -18,7 +18,7 @@ function AddMovies() {
         console.log(newMovie)
 
         // send data to the server and database
-        fetch('http://localhost:5000/movie', {
+        fetch('https://assignment-10-server-side-bice.vercel.app/movie', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

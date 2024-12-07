@@ -22,7 +22,7 @@ function UpdateMovie() {
         const updateMovie = { poster, title, genre, duration, release, rating, summary }
         console.log(updateMovie)
 
-        fetch(`http://localhost:5000/movie/${_id}`, {
+        fetch(`https://assignment-10-server-side-bice.vercel.app/movie/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

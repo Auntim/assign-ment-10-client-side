@@ -23,7 +23,7 @@ function MovieCard({ movie, movies, setMovies }) {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/movie/${_id}`, {
+                fetch(`https://assignment-10-server-side-bice.vercel.app/movie/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

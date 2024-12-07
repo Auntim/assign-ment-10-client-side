@@ -8,7 +8,7 @@ function MovieDetails() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/movie/${id}`)
+        fetch(`https://assignment-10-server-side-bice.vercel.app/movie/${id}`)
             .then((res) => res.json())
             .then((data) => setMovie(data))
             .catch((err) => console.error(err));
@@ -25,7 +25,7 @@ function MovieDetails() {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/movie/${id}`, {
+                fetch(`https://assignment-10-server-side-bice.vercel.app/movie/${id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())
@@ -41,7 +41,7 @@ function MovieDetails() {
     };
 
     const handleAddToFavorites = () => {
-        fetch(`http://localhost:5000/favorites`, {
+        fetch(`https://assignment-10-server-side-bice.vercel.app/favorites`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

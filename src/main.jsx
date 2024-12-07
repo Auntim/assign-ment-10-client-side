@@ -30,12 +30,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/movie')
+        loader: () => fetch('https://assignment-10-server-side-bice.vercel.app/movie')
       },
       {
         path: 'movies',
         element: <AllMovies></AllMovies>,
-        loader: () => fetch('http://localhost:5000/movie')
+        loader: () => fetch('https://assignment-10-server-side-bice.vercel.app/movie')
       },
       {
         path: 'add-movie',
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: 'updatemovie/:id',
         element: <UpdateMovie></UpdateMovie>,
-        loader: ({ params }) => fetch(`http://localhost:5000/movie/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-10-server-side-bice.vercel.app/movie/${params.id}`)
       },
       {
         path: '/favorites',
