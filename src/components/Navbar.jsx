@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { FaUserCircle } from "react-icons/fa";
@@ -9,6 +9,8 @@ import { AuthContext } from "../providers/AuthProviders";
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext)
     const navigate = useNavigate();
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
 
 
     const handleLogout = async () => {
@@ -30,6 +32,17 @@ const Navbar = () => {
             });
         }
     };
+
+    const toggleTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+    };
+
+
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
 
     return (
         <nav className="bg-gray-800 text-white">
@@ -84,7 +97,7 @@ const Navbar = () => {
 
                 </ul>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex justify-center items-center space-x-4">
                     {!user ? (
                         <>
                             <Link to="/login" className="hover:text-yellow-500">
@@ -115,7 +128,16 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
+                <div className=" rounded bg-gray-200 dark:bg-gray-800">
+                    <button
+                        onClick={toggleTheme}
+                        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-700"
+                    >
+                        {theme === "light" ? "Dark" : "Light"} Mode
+                    </button>
+                </div>
             </div>
+
 
             <div className="md:hidden">
                 <GiHamburgerMenu></GiHamburgerMenu>
