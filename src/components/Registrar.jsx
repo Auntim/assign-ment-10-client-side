@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../providers/AuthProviders'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async';
+
 
 function Registrar() {
 
@@ -37,6 +39,9 @@ function Registrar() {
     }
     return (
         <div className='flex card justify-center items-center min-h-screen bg-gray-100'>
+            <Helmet>
+                <title>NETFLIX | Registrar</title>
+            </Helmet>
             <div className=" bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <form onSubmit={handleSignUp} className="card-body">
                     <h2 className='text-xl font-semibold'>Register</h2>

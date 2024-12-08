@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
+
 
 function MovieDetails() {
     const { id } = useParams();
@@ -63,6 +65,9 @@ function MovieDetails() {
 
     return (
         <div className="container mx-auto p-6">
+            <Helmet>
+                <title>NETFLIX | Details</title>
+            </Helmet>
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure className=''>
                     <img src={poster} alt={title} className="w-full h-auto object-cover rounded-lg" />

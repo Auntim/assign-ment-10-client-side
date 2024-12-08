@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
+
 
 function Login() {
     const { googleSignIn, signInUser } = useContext(AuthContext);
@@ -58,6 +60,9 @@ function Login() {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
+            <Helmet>
+                <title>NETFLIX | Login</title>
+            </Helmet>
             <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
                 <div className="card-body">
                     <h2 className="text-2xl font-bold mb-4">Login</h2>

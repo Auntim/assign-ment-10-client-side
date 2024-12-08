@@ -1,6 +1,8 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
+
 
 function UpdateMovie() {
 
@@ -47,6 +49,9 @@ function UpdateMovie() {
 
     return (
         <div className='lg:w-3/4 mx-auto'>
+            <Helmet>
+                <title>NETFLIX | Update</title>
+            </Helmet>
             <div className="text-center p-10">
                 <h1 className="text-5xl font-bold">Update Movie! {title}</h1>
             </div>

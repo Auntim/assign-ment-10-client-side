@@ -3,6 +3,7 @@ import MovieCard from "../components/MovieCard";
 import { Link } from "react-router-dom";
 import Slider from "../components/Slider";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     const loadedmovies = useLoaderData();
@@ -13,6 +14,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>NETFLIX | Home</title>
+            </Helmet>
 
             <div className="mt-20">
                 <Slider />

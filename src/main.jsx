@@ -20,6 +20,7 @@ import { FaV } from 'react-icons/fa6';
 // import FavoriteMovies from './components/FavoriteMovies.jsx';
 import Erropage from './components/Erropage.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -75,8 +76,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProviders>
-      <RouterProvider router={router} />
-    </AuthProviders>
+    <HelmetProvider>
+      <AuthProviders>
+        <RouterProvider router={router} />
+      </AuthProviders>
+    </HelmetProvider>
   </StrictMode>,
 )

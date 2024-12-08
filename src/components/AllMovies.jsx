@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
+import { Helmet } from 'react-helmet-async';
+
 
 function AllMovies() {
     const loadedMovies = useLoaderData();
@@ -12,6 +14,9 @@ function AllMovies() {
 
     return (
         <div>
+            <Helmet>
+                <title>NETFLIX | All Movies</title>
+            </Helmet>
             <section className="container mx-auto px-6 py-12">
                 <h2 className="text-5xl text-center font-bold mb-6">All Kinds of Movies are here!!!</h2>
 

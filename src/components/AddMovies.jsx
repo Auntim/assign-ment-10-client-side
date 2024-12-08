@@ -1,5 +1,7 @@
 import React from 'react'
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
+
 
 function AddMovies() {
 
@@ -43,6 +45,9 @@ function AddMovies() {
 
     return (
         <div className='lg:w-3/4 mx-auto'>
+            <Helmet>
+                <title>NETFLIX | Add Movies</title>
+            </Helmet>
             <div className="text-center p-10">
                 <h1 className="text-5xl font-bold">Add Movie!</h1>
             </div>
