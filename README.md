@@ -9,6 +9,14 @@ Github Repo Server site Link:https://github.com/programming-hero-web-course2/b10
 
 Github Repo Clint site Link:https://github.com/programming-hero-web-course2/b10-a10-client-side-Auntim
 
+#Technology
+1-React 18 for building user interfaces
+2-Vite for fast development and bundling
+3-Tailwind CSS & DaisyUI for styling
+4-React Router for navigation
+5-Firebase for backend and authentication
+6-React Hook Form for form management
+7-SweetAlert2 for alert modals
 
 📌 Features:
 1-Comprehensive Movie Database
